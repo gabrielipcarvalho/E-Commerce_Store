@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./src/swagger/swaggerDoc");
-var cors = require('cors');
+var cors = require("cors");
 
 const { getFakeStoreData } = require("./src/db/fakeStoreData");
 // var indexRouter = require("./src/routes/index");
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // app.use("/", indexRouter);
 app.get("/", (req, res) => {
-  res.redirect("/api-docs");
+	res.redirect("/api-docs");
 });
 app.use("/users", usersRouter);
 app.use("/orders", ordersRouter);
@@ -39,27 +39,33 @@ app.use("/products", productRouter);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+	next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
+	// render the error page
+	res.status(err.status || 500);
+	res.render("error");
+});
+
+// ADD THIS SECTION TO START THE SERVER
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+	console.log(`Server is running on port ${port}`);
 });
 
 if (process.env.NODE_ENV !== "test") {
-  setTimeout(() => {
-    console.log(
-      "\x1b[32m%s\x1b[0m",
-      "\nFake store server started. Visit http://localhost:3000/ for API documentation.\n"
-    );
-  }, 1000);
+	setTimeout(() => {
+		console.log(
+			"\x1b[32m%s\x1b[0m",
+			"\nFake store server started. Visit http://localhost:3000/ for API documentation.\n"
+		);
+	}, 1000);
 }
 
 module.exports = app;

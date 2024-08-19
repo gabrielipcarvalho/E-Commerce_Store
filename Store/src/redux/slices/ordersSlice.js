@@ -9,7 +9,7 @@ const initialState = {
 	error: null,
 };
 
-const SERVER_URL = "http://172.20.10.2:3000";
+const SERVER_URL = "http://localhost:3000";
 
 export const fetchOrders = createAsyncThunk(
 	"orders/fetchOrders",
