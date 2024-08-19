@@ -1,0 +1,71 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# Dependency directories
+node_modules/
+
+# Build outputs
+ios/build/
+android/build/
+android/.gradle
+android/app/build/
+
+# Environment variables
+.env
+.env*.local
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS files
+.DS_Store
+*.pem
+
+# Logs
+logs/
+*.log
+
+# Various IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# Database
+*.sqlite3
+
+# Combined files and temporary files
+combined.txt
+combine_files.sh
+
+# Swagger auto-generated files (if applicable)
+swagger.json
+swagger.yaml
+
+# Public folder (if it contains generated files)
+public/
+
+# Ignore package-lock.json or yarn.lock files if you want consistency between environments
+# Uncomment the line for the one you don't use:
+# package-lock.json
+# yarn.lock
